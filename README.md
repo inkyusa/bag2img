@@ -24,7 +24,7 @@ Create a folder and download a bag file into it.
 ```bash
 mkdir dataset & wget -O ./dataset/test.bag https://vision.in.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_calibration_rgb_depth.bag
 ```
-Then you will have dataset folder and `test.bag` file in it. The following command will create output folder named `rgbd_color_output` and store images with name `frame000000.png`. Note that in the downloaded bag file, the color images are stored as 640x480 8-bit RGB images in PNG format and the depth maps are stored as 640x480 16-bit monochrome images in PNG format. Please have a look [dataset description link](https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats) and [other encoding options] (http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython). 
+Then you will have dataset folder and `test.bag` file in it. The following command will create output folder named `rgbd_color_output` and store images with name `frame000000.png`. Note that in the downloaded bag file, the color images are stored as 640x480 8-bit RGB images in PNG format and the depth maps are stored as 640x480 16-bit monochrome images in PNG format. Please have a look [dataset description link](https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats) and [other encoding options](http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython). 
 
 ## Extracting color images
 ```bash
