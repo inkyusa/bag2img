@@ -16,13 +16,15 @@ Usage: python bag2img --img_topic=/img_topic_name --bag=bag_filename --output_fo
 
 ```--output_folder``` (optional) Path to a output folder where extracted images will be stored.',default="./output"
 
+```--encoding``` (optional) encoding options, e.g., mono8, mono16, bgr8, rgb8, bgra8, rgba8', default="passthrough"
+
 # Simple test
 To test the script, we will download a bag file and run the script.
 Create a folder and download a bag file into it.
 ```bash
 mkdir dataset & wget -O ./dataset/test.bag https://vision.in.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_calibration_rgb_depth.bag
 ```
-Then you will have dataset folder and `test.bag` file in it. The following command will create output folder named `rgbd_color_output` and store images with name `frame000000.png`. Note that in the downloaded bag file, the color images are stored as 640x480 8-bit RGB images in PNG format and the depth maps are stored as 640x480 16-bit monochrome images in PNG format [dataset description link](https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats). This implies that we can visualize the color images after extraction via any image viewer but not for the depth image because we passthrough desired_encoding parameter. If you want to visualize a depth image, you need to rescale 16-bit data into 8-bit. Please have a look [dataset description link](https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats) and [other encoding options] (http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython). 
+Then you will have dataset folder and `test.bag` file in it. The following command will create output folder named `rgbd_color_output` and store images with name `frame000000.png`. Note that in the downloaded bag file, the color images are stored as 640x480 8-bit RGB images in PNG format and the depth maps are stored as 640x480 16-bit monochrome images in PNG format. Please have a look [dataset description link](https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats) and [other encoding options] (http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython). 
 
 ## Extracting color images
 ```bash
