@@ -35,6 +35,8 @@ class Img_Extractor(object):
                         help='output image format, e.g., jpg or png',default="jpg")
         self.parser.add_argument('--output_folder', required=False,
                         help='Path to a output folder where extracted images will be stored.',default="./output")
+        self.parser.add_argument('--encoding', required=False,
+                        help='encoding options, e.g., mono8, mono16, bgr8, rgb8, bgra8, rgba8',default="passthrough")
         self.args = self.parser.parse_args()
     def run(self):
         start = timer()
@@ -43,7 +45,7 @@ class Img_Extractor(object):
         self.bag=rosbag.Bag(self.args.bag,"r")
         for i,msg in enumerate(self.bag.read_messages(topics=[self.args.img_topic])):
             try:
-                cv2_img = self.bridge.imgmsg_to_cv2(msg.message, desired_encoding="passthrough")
+                cv2_img = self.bridge.imgmsg_to_cv2(msg.message, desired_encoding=self.args.encoding)
                 outputFileName=os.path.join(self.args.output_folder,"{}_{:06d}.{}".format(self.args.file_name,i,self.args.output_format))
                 print("{} saved".format(outputFileName))
                 self.total_n_image=i
@@ -53,7 +55,7 @@ class Img_Extractor(object):
         self.bag.close()
         end = timer()
         print("=====================================================")
-        print("Extraction took {:.03f}s for extracting {} images".format(end - start,self.total_n_image+1)) # Time in seconds, e.g. 5.38091952400282
+        print("Extraction took {:.03f}s for extracting {} images".format(end - start,self.total_n_image+1))
         print("=====================================================")
 
 if __name__ == "__main__":
