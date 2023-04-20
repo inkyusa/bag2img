@@ -44,6 +44,7 @@ class Img_Extractor(object):
         for i,msg in enumerate(self.bag.read_messages(topics=[self.args.img_topic])):
             try:
                 cv2_img = self.bridge.imgmsg_to_cv2(msg.message, desired_encoding=self.args.encoding)
+                cv2_img = cv2.cvtColor(cv2_img, cv2.COLOR_BGR2RGB)
                 outputFileName=os.path.join(self.args.output_folder,"{}_{:06d}.{}".format(self.args.file_name,i,self.args.output_format))
                 print("{} saved".format(outputFileName))
                 self.total_n_image=i
