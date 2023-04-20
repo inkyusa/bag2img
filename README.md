@@ -3,7 +3,7 @@ Extract images from a bag file.
 
 # How-to-use
 
-Usage: `python bag2img --img_topic=/img_topic_name --bag=bag_filename --output_folder=output_folder_name --output_format=jpg`
+Usage: `python bag2img --img_topic=/img_topic_name --bag=bag_filename --output_folder=output_folder_name --output_format=jpg --sampling 2`
 
 # Optional arguments
 ```--img_topic``` (mandatory) Name of image topic you want to extract
@@ -17,6 +17,8 @@ Usage: `python bag2img --img_topic=/img_topic_name --bag=bag_filename --output_f
 ```--output_folder``` (optional) Path to a output folder where extracted images will be stored.',default="./output"
 
 ```--encoding``` (optional) encoding options, e.g., mono8, mono16, bgr8, rgb8, bgra8, rgba8', default="passthrough"
+
+```--sampling``` (optional) save an image every n samples. If it is set to 1, it will store all frames, if set to 2, it will save an image every 2 samples (10Hz -> 5Hz), default="1"
 
 # Simple test
 To test the script, we will download a bag file and run the script.
