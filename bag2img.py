@@ -7,11 +7,9 @@ from __future__ import print_function
 import os,sys
 import argparse
 from ros import rosbag
-#import roslib
-import rospy
 from sensor_msgs.msg import Image
 import cv2
-from cv_bridge import CvBridge, CvBridgeError
+from cv_bridge import CvBridge
 from timeit import default_timer as timer
 
 class Img_Extractor(object):
@@ -50,8 +48,8 @@ class Img_Extractor(object):
                 print("{} saved".format(outputFileName))
                 self.total_n_image=i
                 cv2.imwrite(outputFileName,cv2_img)
-            except CvBridgeError, e:
-                print(e)
+            except:
+                print("Error, check msg.message, output folder path and so on.")
         self.bag.close()
         end = timer()
         print("=====================================================")
