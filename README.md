@@ -3,7 +3,7 @@ Extract images from a bag file.
 
 # How-to-use
 
-Usage: python bag2img --img_topic=/img_topic_name --bag=bag_filename --output_folder=output_folder_name --output_format=jpg
+Usage: `python bag2img --img_topic=/img_topic_name --bag=bag_filename --output_folder=output_folder_name --output_format=jpg`
 
 # Optional arguments
 ```--img_topic``` (mandatory) Name of image topic you want to extract
